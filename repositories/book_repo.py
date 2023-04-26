@@ -29,3 +29,17 @@ def delete(id):
     sql = "DELETE FROM books WHERE id = %s"
     values = [id]
     run_sql(sql, values)
+
+
+def select(id):
+    book = None
+
+    sql = "SELECT * FROM books WHERE id = %s"
+    values = [id]
+    results = run_sql(sql, values)
+
+    if results:
+        result = results[0]
+        author = author_repo.select(result['id'])
+        book = Book(result['title'], result['pubdate'], author, result['id'])
+    return book

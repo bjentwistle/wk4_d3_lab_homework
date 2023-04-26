@@ -15,3 +15,6 @@ author2 = Author("Philip Reeve")
 author_repo.save(author2)
 book2 = Book("His Dark Materials", 2003, author2)
 book_repo.save(book2)
+
+
+pdb.set_trace()
