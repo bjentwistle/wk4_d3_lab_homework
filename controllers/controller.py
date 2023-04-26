@@ -12,3 +12,8 @@ def books():        #this function works on the /books route and shows all books
     books = book_repo.select_all() 
     return render_template("/books/index.html", all_books = books) #then renders all the books on the index page
 
+# DELETE '/books/<id>'
+@books_blueprint.route("/books/<id>/delete", methods=['POST'])
+def delete_book(id):
+    book_repo.delete(id)
+    return redirect('/books')
